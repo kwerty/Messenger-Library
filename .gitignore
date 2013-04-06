@@ -1,0 +1,6 @@
+/MessengerLibrary/bin/*
+/MessengerLibrary/obj/*
+/MessengerShell/bin/*
+/MessengerShell/obj/*
+Thumbs.db
+*.suo
