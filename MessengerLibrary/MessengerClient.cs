@@ -1533,8 +1533,14 @@ namespace MessengerLibrary
 
     public class Credentials
     {
-        public string LoginName { get; set; }
-        public string Password { get; set; }
+        public string LoginName { get; private set; }
+        public string Password { get; private set; }
+
+        public Credentials(string loginName, string password)
+        {
+            LoginName = loginName;
+            Password = password;
+        }
     }
 
 

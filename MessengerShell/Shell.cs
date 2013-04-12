@@ -89,23 +89,10 @@ namespace MessengerShell
                             if (Msgr == null)
                             {
 
-
-                                var credentials = new Credentials();
-
-                                //if (args.Length == 0)
-                                //{
-                                //    credentials.LoginName = "dontshootthemsgr@hotmail.com";
-                                //    credentials.Password = "testpass";
-
-                                //}
-                                if (args.Length == 2)
-                                {
-                                    credentials.LoginName = args[0];
-                                    credentials.Password = args[1];
-                                }
-
-                                else if (args.Length != 2)
+                                if (args.Length != 2)
                                     throw new ArgumentException("Login name and password required");
+
+                                Credentials credentials = new Credentials(args[0], args[1]);
 
                                 Msgr = new MessengerClient(credentials);
 
