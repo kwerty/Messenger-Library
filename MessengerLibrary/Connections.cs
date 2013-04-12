@@ -169,7 +169,7 @@ namespace MessengerLibrary.Connections
                 while (remains > 0)
                 {
 
-                    int sent = await Task.Factory.FromAsync<int>(socket.BeginSend(data, offset, size, SocketFlags.None, null, null), socket.EndSend);
+                    int sent = await Task.Factory.FromAsync<int>(socket.BeginSend(data, offset + (size - remains), remains, SocketFlags.None, null, null), socket.EndSend);
 
                     if (sent == 0)
                         throw new SocketConnectionException("Unexpected disconnect");
