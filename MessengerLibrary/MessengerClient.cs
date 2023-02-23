@@ -102,7 +102,7 @@ namespace MessengerLibrary
 
                 int transferCount = 0;
 
-                SocketEndPoint endPoint = SocketEndPoint.Parse("messenger.hotmail.com:1863");
+                SocketEndPoint endPoint = SocketEndPoint.Parse("msnmsgr.escargot.chat:1863");
 
                 string authTicket = null;
 

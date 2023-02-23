@@ -19,7 +19,7 @@ namespace MessengerLibrary.Authentication
             try
             {
 
-                HttpWebRequest redirectRequest = HttpWebRequest.Create("https://nexus.passport.com/rdr/pprdr.asp") as HttpWebRequest;
+                HttpWebRequest redirectRequest = HttpWebRequest.Create("https://msnmsgr.escargot.chat/rdr/pprdr.asp") as HttpWebRequest;
                 HttpWebResponse redirectResponse = await redirectRequest.GetResponseAsync() as HttpWebResponse;
 
                 //splits a string like this into a dict
@@ -28,23 +28,23 @@ namespace MessengerLibrary.Authentication
                 Dictionary<string, string> passportURLs = null;
 
                 using (redirectResponse)
-                    passportURLs = redirectResponse.Headers["PassportURLs"]
+                    passportURLs = redirectResponse.Headers["Passporturls"]
                         .Split(',')
                         .Select(x => x.Split('='))
                         .ToDictionary(x => x[0], x => x[1]);
 
-                string daRealmUrl = passportURLs["DARealm"];
+                //string daRealmUrl = passportURLs["DARealm"];
                 string daLoginUrl = passportURLs["DALogin"];
-                string daRegUrl = passportURLs["DAReg"];
-                string propertiesUrl = passportURLs["Properties"];
-                string privacyUrl = passportURLs["Privacy"];
-                string generalRedirUrl = passportURLs["GeneralRedir"];
-                string HelpUrl = passportURLs["Help"];
-                string configVersion = passportURLs["ConfigVersion"];
+                //string daRegUrl = passportURLs["DAReg"];
+                //string propertiesUrl = passportURLs["Properties"];
+                //string privacyUrl = passportURLs["Privacy"];
+                //string generalRedirUrl = passportURLs["GeneralRedir"];
+                //string HelpUrl = passportURLs["Help"];
+                //string configVersion = passportURLs["ConfigVersion"];
 
                 string authHeader = String.Format("Passport1.4 OrgVerb=GET,OrgURL={0},sign-in={1},pwd={2},{3}", Uri.EscapeDataString("http://messenger.msn.com"), loginName, password, authTicket);
 
-                HttpWebRequest tokenRequest = (HttpWebRequest)HttpWebRequest.Create("https://" + daLoginUrl);
+                HttpWebRequest tokenRequest = (HttpWebRequest)HttpWebRequest.Create(daLoginUrl);
                 //_tokenRequest.AllowAutoRedirect = false;
                 tokenRequest.Headers.Add("Authorization", authHeader);
 
