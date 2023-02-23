@@ -657,6 +657,11 @@ namespace MessengerShell
                 }
 
             }
+            catch (ServerErrorException ex)
+            {
+                using (ConsoleExt.WithColor(errorColor))
+                    Console.WriteLine(ex.ServerError);
+            }
             catch (TimeoutException ex)
             {
                 using (ConsoleExt.WithColor(errorColor))
