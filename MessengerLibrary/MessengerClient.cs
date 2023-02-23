@@ -148,6 +148,7 @@ namespace MessengerLibrary
                         { "RNG", typeof(RingCommand) },
                         { "SBP", typeof(ChangeUserPropertyCommand) },
                         { "IMS", typeof(EnableIMCommand) },
+                        { "OUT", typeof(OutCommand) },
                     });
                     
                     commands = reader.GetReadObservable().Publish();
