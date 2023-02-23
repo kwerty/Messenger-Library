@@ -32,11 +32,6 @@ namespace MessengerShell
 
         ManualResetEvent endEvent = new ManualResetEvent(false);
 
-        static void Main(string[] args)
-        {
-            new MessengerShell();
-        }
-
         public MessengerShell()
         {
 
